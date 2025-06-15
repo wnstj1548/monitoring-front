@@ -28,7 +28,6 @@ export default function LoginPage() {
     } else {
       localStorage.removeItem("uid");
     }
-    console.log("로그인 시도:", { uid, password });
 
     try {
       const response = await axiosInstance.post(
@@ -42,18 +41,14 @@ export default function LoginPage() {
         }
       );
 
-      console.log(response);
-
       const { accessToken } = response.data || {};
       if (!accessToken) {
         throw new Error("토큰이 존재하지 않습니다.");
       }
       localStorage.setItem("token", accessToken);
 
-      console.log("로그인 성공:", response.data);
       navigate("/");
     } catch (error) {
-      console.error("로그인 실패:", error);
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
     }
   };

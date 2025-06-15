@@ -186,13 +186,11 @@ const Dashboard = () => {
 
     const canvas = chartRef.current;
     if (!canvas) {
-      console.log("Canvas not found");
       return;
     }
 
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-      console.log("Context not found");
       return;
     }
 
@@ -205,7 +203,6 @@ const Dashboard = () => {
         !Array.isArray(dailyCostTrend.dailyCosts) ||
         dailyCostTrend.dailyCosts.length === 0
       ) {
-        console.log("Daily cost data not available");
         return;
       }
 
@@ -329,7 +326,6 @@ const Dashboard = () => {
       };
     } else if (chartType === "monthly") {
       if (!Array.isArray(monthlyTrendData) || monthlyTrendData.length === 0) {
-        console.log("Monthly trend data not available");
         return;
       }
 
